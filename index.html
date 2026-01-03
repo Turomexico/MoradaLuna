@@ -326,6 +326,8 @@
 
         .about-image img {
             width: 100%;
+            height: 400px;
+            object-fit: cover;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
@@ -571,51 +573,6 @@
             background-color: #3a5a8a;
         }
 
-        /* Sección de sucursales */
-        .branches-section {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .branches-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .branch-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-            text-align: center;
-        }
-
-        .branch-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .branch-logo {
-            height: 50px;
-            margin-bottom: 1.5rem;
-            object-fit: contain;
-        }
-
-        .branch-card h3 {
-            color: #4a6fa5;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .branch-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
         /* Sección de reserva */
         .booking-container {
             max-width: 1200px;
@@ -859,8 +816,7 @@
             
             .properties-grid,
             .services-grid-minimal,
-            .explore-grid,
-            .branches-grid {
+            .explore-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -921,7 +877,6 @@
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#explora-cdmx">Explora CDMX</a></li>
                 <li><a href="#propiedades">Propiedades</a></li>
-                <li><a href="#sucursales">Sucursales</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -994,7 +949,7 @@
                     <p>Creemos que un buen alojamiento puede transformar un viaje en una experiencia inolvidable. Por eso, cada propiedad Morada Luna está cuidadosamente diseñada y equipada para superar tus expectativas.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop" alt="Interior Morada Luna">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiyFIK268Pw0H3F0A3TLXAf7pCZYd0B6uTnw&s" alt="Interior Morada Luna">
                 </div>
             </div>
         </section>
@@ -1183,86 +1138,64 @@
         <section class="properties-section" id="propiedades">
             <h2 class="section-title">Nuestros Alojamientos</h2>
             <div id="properties-grid" class="properties-grid">
-                <!-- Propiedad 1 -->
-                <div class="property-card" onclick="openWhatsApp('Linda Habitación en Roma Morada Luna')">
-                    <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1270521288480613949/original/9a10b18c-7b51-4fb1-82b0-1923e0d799ea.jpeg?im_w=720" alt="Linda Habitación en Roma Morada Luna">
+                <!-- Propiedad 1: Morada Luna Roma Norte -->
+                <div class="property-card" onclick="openWhatsApp('Morada Luna Roma Norte')">
+                    <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1270521288480613949/original/9a10b18c-7b51-4fb1-82b0-1923e0d799ea.jpeg?im_w=720" alt="Morada Luna Roma Norte">
                     <div class="property-content">
-                        <h3>Linda Habitación en Roma Morada Luna</h3>
+                        <h3>Morada Luna Roma Norte</h3>
+                        <div class="property-meta">
+                            <span><i class="fas fa-users"></i> 2-4 personas</span>
+                            <span><i class="fas fa-bed"></i> 2 camas</span>
+                            <span><i class="fas fa-bath"></i> 1 baño</span>
+                        </div>
+                        <p class="property-description">Encantador departamento en el corazón de Roma Norte. Disfruta de la vibrante vida cultural y gastronómica del barrio desde una ubicación privilegiada.</p>
+                        <div class="property-price">
+                            <div>
+                                <span class="price">$1,200 <span class="price-currency">MXN/noche</span></span>
+                            </div>
+                            <div class="btn-secondary" onclick="event.stopPropagation(); openWhatsApp('Morada Luna Roma Norte')">Consultar Disponibilidad</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Propiedad 2: Morada Luna Polanco -->
+                <div class="property-card" onclick="openWhatsApp('Morada Luna Polanco')">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/486455253.jpg?k=c2375c97db0bc4ecaf43539ffa81d27ba853e321fa5945818b5880081d49b428&o=" alt="Morada Luna Polanco">
+                    <div class="property-content">
+                        <h3>Morada Luna Polanco</h3>
                         <div class="property-meta">
                             <span><i class="fas fa-users"></i> 2 personas</span>
                             <span><i class="fas fa-bed"></i> 1 cama</span>
                             <span><i class="fas fa-bath"></i> 1 baño</span>
                         </div>
-                        <p class="property-description">Acogedora habitación privada en el corazón de La Roma. Perfecta para parejas o viajeros solitarios que buscan comodidad y estilo.</p>
+                        <p class="property-description">Elegante estudio en Polanco, la zona más exclusiva de la CDMX. Perfecto para viajeros de negocios o parejas que buscan lujo y comodidad.</p>
                         <div class="property-price">
                             <div>
-                                <span class="price">$850 <span class="price-currency">MXN/noche</span></span>
+                                <span class="price">$1,500 <span class="price-currency">MXN/noche</span></span>
                             </div>
-                            <div class="btn-secondary" onclick="event.stopPropagation(); openWhatsApp('Linda Habitación en Roma Morada Luna')">Consultar Disponibilidad</div>
+                            <div class="btn-secondary" onclick="event.stopPropagation(); openWhatsApp('Morada Luna Polanco')">Consultar Disponibilidad</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Propiedad 2 -->
-                <div class="property-card" onclick="openWhatsApp('Linda Habitación en Roma Morada Luna 202')">
-                    <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1270521288480613949/original/9a10b18c-7b51-4fb1-82b0-1923e0d799ea.jpeg?im_w=720" alt="Linda Habitación en Roma Morada Luna 202">
+                <!-- Propiedad 3: Morada Luna Coyoacán -->
+                <div class="property-card" onclick="openWhatsApp('Morada Luna Coyoacán')">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/769863284.jpg?k=3c56d2b0ff1ec71645aa88cc2b5e5aee0b988d2ba7407ca44d761c594897bfb2&o=" alt="Morada Luna Coyoacán">
                     <div class="property-content">
-                        <h3>Linda Habitación en Roma Morada Luna 202</h3>
+                        <h3>Morada Luna Coyoacán</h3>
                         <div class="property-meta">
-                            <span><i class="fas fa-users"></i> 2 personas</span>
-                            <span><i class="fas fa-bed"></i> 1 cama</span>
-                            <span><i class="fas fa-bath"></i> Baño compartido</span>
+                            <span><i class="fas fa-users"></i> 4 personas</span>
+                            <span><i class="fas fa-bed"></i> 2 camas</span>
+                            <span><i class="fas fa-bath"></i> 1 baño</span>
                         </div>
-                        <p class="property-description">Habitación confortable con decoración moderna en nuestra propiedad de La Roma. Incluye acceso a áreas comunes y cocina.</p>
+                        <p class="property-description">Acogedor departamento en el histórico barrio de Coyoacán. A pocos pasos de la Casa Azul de Frida Kahlo y del centro cultural más importante del sur de la ciudad.</p>
                         <div class="property-price">
                             <div>
-                                <span class="price">$750 <span class="price-currency">MXN/noche</span></span>
+                                <span class="price">$1,350 <span class="price-currency">MXN/noche</span></span>
                             </div>
-                            <div class="btn-secondary" onclick="event.stopPropagation(); openWhatsApp('Linda Habitación en Roma Morada Luna 202')">Consultar Disponibilidad</div>
+                            <div class="btn-secondary" onclick="event.stopPropagation(); openWhatsApp('Morada Luna Coyoacán')">Consultar Disponibilidad</div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Propiedad 3 -->
-                <div class="property-card" onclick="openWhatsApp('Linda habitación en Roma Morada Luna 206')">
-                    <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1270521288480613949/original/9a10b18c-7b51-4fb1-82b0-1923e0d799ea.jpeg?im_w=720" alt="Linda habitación en Roma Morada Luna 206">
-                    <div class="property-content">
-                        <h3>Linda habitación en Roma Morada Luna 206</h3>
-                        <div class="property-meta">
-                            <span><i class="fas fa-users"></i> 2 personas</span>
-                            <span><i class="fas fa-bed"></i> 1 cama</span>
-                            <span><i class="fas fa-bath"></i> Baño privado</span>
-                        </div>
-                        <p class="property-description">Habitación luminosa con baño privado en nuestra propiedad de La Roma. Ideal para quienes buscan privacidad y confort.</p>
-                        <div class="property-price">
-                            <div>
-                                <span class="price">$950 <span class="price-currency">MXN/noche</span></span>
-                            </div>
-                            <div class="btn-secondary" onclick="event.stopPropagation(); openWhatsApp('Linda habitación en Roma Morada Luna 206')">Consultar Disponibilidad</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección de sucursales -->
-        <section class="branches-section" id="sucursales">
-            <h2 class="section-title">Nuestras Sucursales</h2>
-            <p class="section-subtitle">Descubre todas nuestras propiedades en la Ciudad de México</p>
-            
-            <div class="branches-grid">
-                <div class="branch-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="Airbnb Logo" class="branch-logo">
-                    <h3>Morada Luna en Airbnb</h3>
-                    <p>Explora todas nuestras propiedades disponibles en Airbnb. Desde habitaciones privadas hasta departamentos completos, encuentra el alojamiento perfecto para tu estancia en CDMX.</p>
-                    <a href="https://www.airbnb.mx/users/show/156455377" class="btn-secondary" target="_blank">Ver en Airbnb</a>
-                </div>
-                
-                <div class="branch-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Booking.com_logo.svg/2560px-Booking.com_logo.svg.png" alt="Booking.com Logo" class="branch-logo" style="height: 40px;">
-                    <h3>Morada Luna Polanco</h3>
-                    <p>Nuestra exclusiva propiedad en Polanco, uno de los barrios más elegantes de la Ciudad de México. Disfruta de lujo, comodidad y la mejor ubicación para explorar la ciudad.</p>
-                    <a href="https://www.booking.com/hotel/mx/casa-luna-morada-polanco-ciudad-de-mexico.es.html?aid=356980&label=gog235jc-10CAsooAFCKWNhc2EtbHVuYS1tb3JhZGEtcG9sYW5jby1jaXVkYWQtZGUtbWV4aWNvSFJYA2igAYgBAZgBM7gBF8gBDNgBA-gBAfgBAYgCAagCAbgCoMHhygbAAgHSAiQ0NzAwZDI0Zi1jMjkyLTQxZDYtYTQwOC1kYjM0ZGRkNjAxZWHYAgHgAgE&sid=447cb424076e92cc2a82dfc4df49c121&dist=0&keep_landing=1&sb_price_type=total&type=total&" class="btn-secondary" target="_blank">Reservar en Booking</a>
                 </div>
             </div>
         </section>
@@ -1362,7 +1295,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Total a pagar</label>
-                                <div class="info-text" id="total-price" style="color: #ff5a5f; font-size: 1.3rem;">$3,400 MXN (4 noches)</div>
+                                <div class="info-text" id="total-price" style="color: #ff5a5f; font-size: 1.3rem;">$4,800 MXN (4 noches)</div>
                             </div>
                             <button type="submit" class="btn-primary" style="width: 100%;">Confirmar Reserva</button>
                             <button type="button" class="btn-secondary" onclick="goBackToProperties()" style="width: 100%; margin-top: 1rem;">Ver más propiedades</button>
@@ -1385,7 +1318,7 @@
                         <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="Airbnb" class="partner-logo" style="height: 30px;">
                     </a>
                     <a href="https://www.booking.com/hotel/mx/casa-luna-morada-polanco-ciudad-de-mexico.es.html" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Booking.com_logo.svg/2560px-Booking.com_logo.svg.png" alt="Booking.com" class="partner-logo" style="height: 25px;">
+                        <img src="https://brandlogovector.com/wp-content/uploads/2022/02/Booking-App-Logo-Small.png" alt="Booking.com" class="partner-logo" style="height: 30px; filter: brightness(0) invert(1);">
                     </a>
                 </div>
             </div>
@@ -1398,7 +1331,7 @@
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#explora-cdmx">Explora CDMX</a></li>
                     <li><a href="#propiedades">Propiedades</a></li>
-                    <li><a href="#sucursales">Sucursales</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </div>
             
@@ -1448,46 +1381,46 @@
     </footer>
 
     <script>
-        // Datos de las propiedades (actualizados con nombres reales)
+        // Datos de las propiedades actualizadas
         const properties = {
             1: {
                 id: 1,
-                name: "Linda Habitación en Roma Morada Luna",
-                description: "Acogedora habitación privada en el corazón de La Roma. Perfecta para parejas o viajeros solitarios que buscan comodidad y estilo.",
-                max_guests: 2,
+                name: "Morada Luna Roma Norte",
+                description: "Encantador departamento en el corazón de Roma Norte. Disfruta de la vibrante vida cultural y gastronómica del barrio desde una ubicación privilegiada.",
+                max_guests: 4,
                 bedrooms: 1,
-                beds: 1,
+                beds: 2,
                 bathrooms: 1,
-                square_meters: 25,
-                price_per_night: 850,
-                amenities: ["WiFi", "TV", "Aire acondicionado", "Ropa de cama", "Toallas"],
+                square_meters: 55,
+                price_per_night: 1200,
+                amenities: ["WiFi", "TV", "Cocina equipada", "Aire acondicionado", "Lavadora"],
                 image: "https://a0.muscache.com/im/pictures/hosting/Hosting-1270521288480613949/original/9a10b18c-7b51-4fb1-82b0-1923e0d799ea.jpeg?im_w=720"
             },
             2: {
                 id: 2,
-                name: "Linda Habitación en Roma Morada Luna 202",
-                description: "Habitación confortable con decoración moderna en nuestra propiedad de La Roma. Incluye acceso a áreas comunes y cocina.",
-                max_guests: 2,
-                bedrooms: 1,
-                beds: 1,
-                bathrooms: 0, // compartido
-                square_meters: 22,
-                price_per_night: 750,
-                amenities: ["WiFi", "Acceso a cocina", "Áreas comunes", "Ropa de cama", "Toallas"],
-                image: "https://a0.muscache.com/im/pictures/hosting/Hosting-1270521288480613949/original/9a10b18c-7b51-4fb1-82b0-1923e0d799ea.jpeg?im_w=720"
-            },
-            3: {
-                id: 3,
-                name: "Linda habitación en Roma Morada Luna 206",
-                description: "Habitación luminosa con baño privado en nuestra propiedad de La Roma. Ideal para quienes buscan privacidad y confort.",
+                name: "Morada Luna Polanco",
+                description: "Elegante estudio en Polanco, la zona más exclusiva de la CDMX. Perfecto para viajeros de negocios o parejas que buscan lujo y comodidad.",
                 max_guests: 2,
                 bedrooms: 1,
                 beds: 1,
                 bathrooms: 1,
-                square_meters: 28,
-                price_per_night: 950,
-                amenities: ["WiFi", "TV", "Baño privado", "Aire acondicionado", "Ropa de cama", "Toallas"],
-                image: "https://a0.muscache.com/im/pictures/hosting/Hosting-1270521288480613949/original/9a10b18c-7b51-4fb1-82b0-1923e0d799ea.jpeg?im_w=720"
+                square_meters: 40,
+                price_per_night: 1500,
+                amenities: ["WiFi", "Smart TV", "Cocina completa", "Aire acondicionado", "Gimnasio acceso"],
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/486455253.jpg?k=c2375c97db0bc4ecaf43539ffa81d27ba853e321fa5945818b5880081d49b428&o="
+            },
+            3: {
+                id: 3,
+                name: "Morada Luna Coyoacán",
+                description: "Acogedor departamento en el histórico barrio de Coyoacán. A pocos pasos de la Casa Azul de Frida Kahlo y del centro cultural más importante del sur de la ciudad.",
+                max_guests: 4,
+                bedrooms: 2,
+                beds: 2,
+                bathrooms: 1,
+                square_meters: 60,
+                price_per_night: 1350,
+                amenities: ["WiFi", "TV", "Cocina", "Patio", "Estacionamiento", "Áreas verdes"],
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/769863284.jpg?k=3c56d2b0ff1ec71645aa88cc2b5e5aee0b988d2ba7407ca44d761c594897bfb2&o="
             }
         };
 
