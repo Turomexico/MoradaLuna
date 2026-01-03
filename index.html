@@ -182,31 +182,33 @@
             background-color: white;
         }
 
-        /* WhatsApp Floating Button */
+        /* WhatsApp Floating Button con animación */
         .whatsapp-float {
             position: fixed;
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             bottom: 40px;
             right: 40px;
             background-color: #25d366;
             color: #FFF;
-            border-radius: 50px;
+            border-radius: 50%;
             text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            font-size: 34px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
             z-index: 100;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease-in-out;
             text-decoration: none;
+            animation: pulse 2s infinite;
         }
 
         .whatsapp-float:hover {
             background-color: #128C7E;
-            transform: scale(1.1);
-            box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+            animation: none;
         }
 
         .whatsapp-float i {
@@ -215,23 +217,36 @@
 
         .whatsapp-text {
             position: absolute;
-            right: 70px;
+            right: 80px;
             background-color: #25d366;
             color: white;
-            padding: 8px 15px;
+            padding: 10px 18px;
             border-radius: 25px;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
             white-space: nowrap;
             opacity: 0;
             transition: opacity 0.3s, right 0.3s;
             pointer-events: none;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .whatsapp-float:hover .whatsapp-text {
             opacity: 1;
-            right: 75px;
+            right: 85px;
+        }
+
+        /* Animación de pulso para WhatsApp */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
         }
 
         /* Search section */
@@ -403,6 +418,75 @@
             line-height: 1.4;
         }
 
+        /* Sección de reseñas */
+        .reviews-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 3rem 2rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 1.1rem;
+        }
+
+        .review-date {
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-stay {
+            color: #4a6fa5;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .review-text {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
         /* Sección Explora CDMX */
         .explore-section {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -429,6 +513,7 @@
             overflow: hidden;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
         }
 
         .attraction-card:hover {
@@ -553,6 +638,7 @@
         .price-currency {
             font-size: 0.9rem;
             color: #777;
+            margin-left: 2px;
         }
 
         .btn-secondary {
@@ -571,72 +657,6 @@
 
         .btn-secondary:hover {
             background-color: #3a5a8a;
-        }
-
-        /* Sección de reserva */
-        .booking-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-        }
-
-        .amenities-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .amenity {
-            background: #f0f7ff;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #4a6fa5;
-            border: 1px solid #d0e3ff;
-        }
-
-        .booking-form {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 100px;
-        }
-
-        .booking-form h3 {
-            color: #4a6fa5;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 0.9rem;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-
-        .form-group .info-text {
-            font-weight: bold;
-            color: #4a6fa5;
-            padding: 0.5rem 0;
         }
 
         /* Utilidades */
@@ -671,6 +691,12 @@
             width: auto;
             border-radius: 8px;
             margin-bottom: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .footer-logo img:hover {
+            transform: scale(1.05);
         }
 
         .footer-links h4,
@@ -710,9 +736,10 @@
             gap: 10px;
         }
 
+        /* Redes sociales con efecto de elevación */
         .social-icons {
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
             margin-top: 1rem;
         }
 
@@ -720,18 +747,51 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            border-radius: 12px;
             color: white;
-            font-size: 1.2rem;
-            transition: background-color 0.3s;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
             text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icons a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
         .social-icons a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-icons a:hover::before {
+            opacity: 1;
+        }
+
+        /* Efectos específicos para cada red social */
+        .social-icons a:nth-child(1):hover {
+            background: linear-gradient(145deg, #E1306C, #C13584);
+        }
+
+        .social-icons a:nth-child(2):hover {
+            background: linear-gradient(145deg, #1877F2, #0A5BC4);
+        }
+
+        .social-icons a:nth-child(3):hover {
+            background: linear-gradient(145deg, #25D366, #128C7E);
         }
 
         .footer-bottom {
@@ -742,44 +802,12 @@
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        .partner-logos {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .partner-logo {
-            height: 40px;
-            width: auto;
-            object-fit: contain;
-            opacity: 0.9;
-            transition: opacity 0.3s, transform 0.3s;
-        }
-
-        .partner-logo:hover {
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
-        .partner-logo.airbnb {
-            filter: none; /* Mantiene el color original */
-        }
-
-        .partner-logo.booking {
-            filter: none; /* Mantiene el color original */
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
 
         /* Responsive */
         @media (max-width: 992px) {
-            .booking-container {
-                grid-template-columns: 1fr;
-            }
-            
             .hero-banner {
                 height: 400px;
             }
@@ -818,14 +846,15 @@
             .whatsapp-float {
                 bottom: 20px;
                 right: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
             }
             
             .properties-grid,
             .services-grid-minimal,
-            .explore-grid {
+            .explore-grid,
+            .reviews-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -867,10 +896,10 @@
     </style>
 </head>
 <body>
-    <!-- WhatsApp Floating Button -->
+    <!-- WhatsApp Floating Button con animación -->
     <a href="https://wa.me/5215511406820" class="whatsapp-float" target="_blank" id="whatsappButton">
         <i class="fab fa-whatsapp"></i>
-        <span class="whatsapp-text">¿Preguntas? ¡Escríbenos!</span>
+        <span class="whatsapp-text">¡Reserva ahora!</span>
     </a>
 
     <header>
@@ -884,6 +913,7 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#quienes-somos">Quiénes Somos</a></li>
                 <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#reseñas">Reseñas</a></li>
                 <li><a href="#explora-cdmx">Explora CDMX</a></li>
                 <li><a href="#propiedades">Propiedades</a></li>
                 <li><a href="#contacto">Contacto</a></li>
@@ -958,7 +988,7 @@
                     <p>Creemos que un buen alojamiento puede transformar un viaje en una experiencia inolvidable. Por eso, cada propiedad Morada Luna está cuidadosamente diseñada y equipada para superar tus expectativas.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://i.ibb.co/chjqJCmZ/Gemini-Generated-Image-sall2isall2isall.png" alt="Morada Luna - Cada familia tiene una historia">
+                    <img src="https://moradaluna.com.mx/wp-content/uploads/2024/12/Cuarto-1.jpg" alt="Habitación Morada Luna">
                 </div>
             </div>
         </section>
@@ -1071,6 +1101,16 @@
             </div>
         </section>
 
+        <!-- Sección de Reseñas -->
+        <section class="reviews-section" id="reseñas">
+            <h2 class="section-title">Lo que dicen nuestros huéspedes</h2>
+            <p class="section-subtitle">Las últimas reseñas de Airbnb sobre nuestra propiedad</p>
+            
+            <div class="reviews-grid" id="reviews-container">
+                <!-- Las reseñas se cargarán dinámicamente aquí -->
+            </div>
+        </section>
+
         <!-- Sección Explora CDMX -->
         <section class="explore-section" id="explora-cdmx">
             <div class="explore-container">
@@ -1078,7 +1118,7 @@
                 <p class="section-subtitle">Descubre los lugares más emblemáticos y vivas la cultura mexicana durante tu estancia.</p>
                 
                 <div class="explore-grid">
-                    <div class="attraction-card">
+                    <div class="attraction-card" onclick="searchGoogle('Centro Histórico Ciudad de México atracciones turísticas')">
                         <img src="https://media.cntraveler.com/photos/5a92f25dc6516a534a5304e9/master/w_1024%2Cc_limit/Metropolitan-Cathedral_GettyImages-115006326.jpg" alt="Centro Histórico" class="attraction-image">
                         <div class="attraction-content">
                             <h3>Centro Histórico</h3>
@@ -1087,7 +1127,7 @@
                         </div>
                     </div>
                     
-                    <div class="attraction-card">
+                    <div class="attraction-card" onclick="searchGoogle('Parque Chapultepec Castillo Ciudad de México')">
                         <img src="https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/08/13235022/chapultepec-mexico-002.jpg" alt="Chapultepec" class="attraction-image">
                         <div class="attraction-content">
                             <h3>Parque de Chapultepec</h3>
@@ -1096,7 +1136,7 @@
                         </div>
                     </div>
                     
-                    <div class="attraction-card">
+                    <div class="attraction-card" onclick="searchGoogle('Museo Frida Kahlo Casa Azul Coyoacán')">
                         <img src="https://media.admagazine.com/photos/62dad7efef35b9d5f2a98871/16:9/w_2560%2Cc_limit/GettyImages-1125944655.jpg" alt="Frida Kahlo" class="attraction-image">
                         <div class="attraction-content">
                             <h3>Museo Frida Kahlo</h3>
@@ -1105,7 +1145,7 @@
                         </div>
                     </div>
                     
-                    <div class="attraction-card">
+                    <div class="attraction-card" onclick="searchGoogle('La Roma Condesa Ciudad de México restaurantes bares')">
                         <img src="https://mex-best.mx/wp-content/uploads/2025/07/21_ROMA-1536x1024-1.jpg" alt="La Roma" class="attraction-image">
                         <div class="attraction-content">
                             <h3>La Roma y La Condesa</h3>
@@ -1114,7 +1154,7 @@
                         </div>
                     </div>
                     
-                    <div class="attraction-card">
+                    <div class="attraction-card" onclick="searchGoogle('Teotihuacán pirámides Ciudad de México tours')">
                         <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/79D9/production/_99739113_gettyimages-73656849.jpg.webp" alt="Teotihuacán" class="attraction-image">
                         <div class="attraction-content">
                             <h3>Teotihuacán</h3>
@@ -1123,7 +1163,7 @@
                         </div>
                     </div>
                     
-                    <div class="attraction-card">
+                    <div class="attraction-card" onclick="searchGoogle('Xochimilco trajineras Ciudad de México')">
                         <img src="https://www.codigosanluis.com/wp-content/uploads/las-trajineras-de-xochimilco.jpg" alt="Xochimilco" class="attraction-image">
                         <div class="attraction-content">
                             <h3>Xochimilco</h3>
@@ -1136,7 +1176,7 @@
                 <div style="text-align: center; margin-top: 3rem;">
                     <p style="color: #666; font-size: 1.1rem; max-width: 800px; margin: 0 auto 1.5rem;">
                         <i class="fas fa-lightbulb" style="color: #4a6fa5; margin-right: 10px;"></i>
-                        <strong>Tip de Morada Luna:</strong> ¿Necesitas recomendaciones personalizadas o ayuda para planificar tu itinerario? Nuestro equipo está listo para ayudarte.
+                        <strong>Tip de Morada Luna:</strong> Haz clic en cualquier imagen para buscar información profesional con IA sobre ese lugar en Google.
                     </p>
                     <a href="https://wa.me/5215511406820?text=¡Hola! Necesito recomendaciones para mi viaje a CDMX" class="btn-secondary" target="_blank" style="text-decoration: none;">Solicitar Recomendaciones</a>
                 </div>
@@ -1160,7 +1200,7 @@
                         <p class="property-description">Encantador departamento en el corazón de Roma Norte. Disfruta de la vibrante vida cultural y gastronómica del barrio desde una ubicación privilegiada.</p>
                         <div class="property-price">
                             <div>
-                                <span class="price">$1,200 <span class="price-currency">MXN/noche</span></span>
+                                <span class="price">$1,200 <span class="price-currency">MXN</span></span>
                             </div>
                             <div class="btn-secondary" onclick="event.stopPropagation(); openWhatsApp('Morada Luna Roma Norte')">Consultar Disponibilidad</div>
                         </div>
@@ -1180,7 +1220,7 @@
                         <p class="property-description">Elegante estudio en Polanco, la zona más exclusiva de la CDMX. Perfecto para viajeros de negocios o parejas que buscan lujo y comodidad.</p>
                         <div class="property-price">
                             <div>
-                                <span class="price">$1,500 <span class="price-currency">MXN/noche</span></span>
+                                <span class="price">$1,500 <span class="price-currency">MXN</span></span>
                             </div>
                             <div class="btn-secondary" onclick="event.stopPropagation(); openWhatsApp('Morada Luna Polanco')">Consultar Disponibilidad</div>
                         </div>
@@ -1200,115 +1240,10 @@
                         <p class="property-description">Acogedor departamento en el histórico barrio de Coyoacán. A pocos pasos de la Casa Azul de Frida Kahlo y del centro cultural más importante del sur de la ciudad.</p>
                         <div class="property-price">
                             <div>
-                                <span class="price">$1,350 <span class="price-currency">MXN/noche</span></span>
+                                <span class="price">$1,350 <span class="price-currency">MXN</span></span>
                             </div>
                             <div class="btn-secondary" onclick="event.stopPropagation(); openWhatsApp('Morada Luna Coyoacán')">Consultar Disponibilidad</div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección de Reserva (inicialmente oculta) -->
-        <section id="booking-details" class="hidden">
-            <div class="properties-section">
-                <h2 class="section-title">Detalles de la Reserva</h2>
-                <div class="booking-container">
-                    <div class="property-details">
-                        <img id="property-image" src="" alt="" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; margin-bottom: 1.5rem;">
-                        <h3 id="property-title" style="color: #4a6fa5; font-size: 1.8rem; margin-bottom: 1rem;"></h3>
-                        <div class="property-info" style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem;">
-                            <span><i class="fas fa-users"></i> <span id="property-guests"></span> personas</span>
-                            <span><i class="fas fa-ruler-combined"></i> <span id="property-size"></span> m²</span>
-                            <span><i class="fas fa-bed"></i> <span id="property-beds"></span> camas</span>
-                        </div>
-                        <div id="property-amenities" class="amenities-grid"></div>
-                        
-                        <div class="calendar">
-                            <h3>Disponibilidad - Febrero 2026</h3>
-                            <div class="calendar-grid">
-                                <div class="calendar-day-header">Lun</div>
-                                <div class="calendar-day-header">Mar</div>
-                                <div class="calendar-day-header">Mié</div>
-                                <div class="calendar-day-header">Jue</div>
-                                <div class="calendar-day-header">Vie</div>
-                                <div class="calendar-day-header">Sáb</div>
-                                <div class="calendar-day-header">Dom</div>
-                                
-                                <!-- Semana 1 -->
-                                <div class="calendar-day">1</div>
-                                <div class="calendar-day">2</div>
-                                <div class="calendar-day">3</div>
-                                <div class="calendar-day">4</div>
-                                <div class="calendar-day available">5</div>
-                                <div class="calendar-day available">6</div>
-                                <div class="calendar-day available">7</div>
-                                
-                                <!-- Semana 2 -->
-                                <div class="calendar-day available">8</div>
-                                <div class="calendar-day available">9</div>
-                                <div class="calendar-day booked">10</div>
-                                <div class="calendar-day booked">11</div>
-                                <div class="calendar-day available">12</div>
-                                <div class="calendar-day available">13</div>
-                                <div class="calendar-day available">14</div>
-                                
-                                <!-- Semana 3 -->
-                                <div class="calendar-day available">15</div>
-                                <div class="calendar-day available">16</div>
-                                <div class="calendar-day booked">17</div>
-                                <div class="calendar-day booked">18</div>
-                                <div class="calendar-day booked">19</div>
-                                <div class="calendar-day available">20</div>
-                                <div class="calendar-day available">21</div>
-                            </div>
-                            <div class="calendar-legend">
-                                <div class="legend-item">
-                                    <div class="legend-color" style="background-color: #e8f5e9;"></div>
-                                    <span>Disponible</span>
-                                </div>
-                                <div class="legend-item">
-                                    <div class="legend-color" style="background-color: #ffebee;"></div>
-                                    <span>Reservado</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="booking-form">
-                        <h3>Completar Reserva</h3>
-                        <form id="booking-form" onsubmit="event.preventDefault(); submitBooking();">
-                            <div class="form-group">
-                                <label>Nombre Completo</label>
-                                <input type="text" id="guest-name" required value="Juan Pérez (Demo)">
-                            </div>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" id="guest-email" required value="demo@moradaluna.com">
-                            </div>
-                            <div class="form-group">
-                                <label>Teléfono</label>
-                                <input type="tel" id="guest-phone" required value="+52 55 1140 6820">
-                            </div>
-                            <div class="form-group">
-                                <label>Check-in</label>
-                                <div class="info-text" id="selected-checkin">2026-02-05</div>
-                            </div>
-                            <div class="form-group">
-                                <label>Check-out</label>
-                                <div class="info-text" id="selected-checkout">2026-02-09</div>
-                            </div>
-                            <div class="form-group">
-                                <label>Huéspedes</label>
-                                <div class="info-text" id="selected-guests">2 adultos, 0 niños</div>
-                            </div>
-                            <div class="form-group">
-                                <label>Total a pagar</label>
-                                <div class="info-text" id="total-price" style="color: #ff5a5f; font-size: 1.3rem;">$4,800 MXN (4 noches)</div>
-                            </div>
-                            <button type="submit" class="btn-primary" style="width: 100%;">Confirmar Reserva</button>
-                            <button type="button" class="btn-secondary" onclick="goBackToProperties()" style="width: 100%; margin-top: 1rem;">Ver más propiedades</button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -1319,17 +1254,8 @@
         <div class="footer-content">
             <div class="footer-logo">
                 <img src="https://scontent.fmex5-1.fna.fbcdn.net/v/t39.30808-6/429783676_900322278460845_1861502284872160379_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGF3_BWjafA2VavRUzGpAIKZDIuEIjgjXJkMi4QiOCNcoOr8enbBcsWY0NrN-d2sxw&_nc_ohc=XUZHKRoXimYQ7kNvwH7EwJM&_nc_oc=AdkOOB9PZXASWfCRoSgxTiu3JAG9j-azOn3QYqU0L0PyZs_Keyb4bdjoow-myw4bwhIyzznYkbWHCVpBDCdPFdHX&_nc_zt=23&_nc_ht=scontent.fmex5-1.fna&_nc_gid=Ko4vfdFJAakf025Ray9iyw&oh=00_Afoj8vD2ivy-03mxEXzQxiqoeaBvwK5EMWvaejB3UwHNJQ&oe=695E219E" 
-                     alt="Logo Morada Luna" class="logo">
+                     alt="Logo Morada Luna" class="logo" onclick="window.open('https://moradaluna.com.mx/', '_blank')">
                 <p style="color: #ddd; line-height: 1.6;">Tu refugio perfecto bajo la luna. Ofrecemos experiencias únicas de alojamiento en los mejores destinos de México.</p>
-                
-                <div class="partner-logos">
-                    <a href="https://www.airbnb.mx/users/show/156455377" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="Airbnb" class="partner-logo airbnb" style="height: 40px;">
-                    </a>
-                    <a href="https://www.booking.com/hotel/mx/casa-luna-morada-polanco-ciudad-de-mexico.es.html" target="_blank">
-                        <img src="https://brandlogovector.com/wp-content/uploads/2022/02/Booking-App-Logo-Small.png" alt="Booking.com" class="partner-logo booking" style="height: 40px;">
-                    </a>
-                </div>
             </div>
             
             <div class="footer-links">
@@ -1338,6 +1264,7 @@
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#quienes-somos">Quiénes Somos</a></li>
                     <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#reseñas">Reseñas</a></li>
                     <li><a href="#explora-cdmx">Explora CDMX</a></li>
                     <li><a href="#propiedades">Propiedades</a></li>
                     <li><a href="#contacto">Contacto</a></li>
@@ -1384,57 +1311,54 @@
         </div>
         
         <div class="footer-bottom">
-            <p>© 2026 Morada Luna. Todos los derechos reservados.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Sistema de reservas conectado con Supabase | Precios en pesos mexicanos ($ MXN)</p>
+            <p>Página de prueba de reservas para servicios digitales de hospedaje hecho por Arturo Tramontin</p>
         </div>
     </footer>
 
     <script>
-        // Datos de las propiedades actualizadas
-        const properties = {
-            1: {
-                id: 1,
-                name: "Morada Luna Roma Norte",
-                description: "Encantador departamento en el corazón de Roma Norte. Disfruta de la vibrante vida cultural y gastronómica del barrio desde una ubicación privilegiada.",
-                max_guests: 4,
-                bedrooms: 1,
-                beds: 2,
-                bathrooms: 1,
-                square_meters: 55,
-                price_per_night: 1200,
-                amenities: ["WiFi", "TV", "Cocina equipada", "Aire acondicionado", "Lavadora"],
-                image: "https://a0.muscache.com/im/pictures/hosting/Hosting-1270521288480613949/original/9a10b18c-7b51-4fb1-82b0-1923e0d799ea.jpeg?im_w=720"
+        // Datos de las reseñas (simuladas basadas en los ejemplos proporcionados)
+        const reviews = [
+            {
+                name: "Alvaro",
+                stars: 5,
+                date: "Hace 3 semanas",
+                stay: "Estancia de una noche",
+                text: "Es bonito el alojamiento, muy limpio pero hace mucho calor aún en invierno pues No tiene ventilación ni el cuarto, ni el baño. Si abres la ventana para tener un poquito de ventilación te ven los de la cocina."
             },
-            2: {
-                id: 2,
-                name: "Morada Luna Polanco",
-                description: "Elegante estudio en Polanco, la zona más exclusiva de la CDMX. Perfecto para viajeros de negocios o parejas que buscan lujo y comodidad.",
-                max_guests: 2,
-                bedrooms: 1,
-                beds: 1,
-                bathrooms: 1,
-                square_meters: 40,
-                price_per_night: 1500,
-                amenities: ["WiFi", "Smart TV", "Cocina completa", "Aire acondicionado", "Gimnasio acceso"],
-                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/486455253.jpg?k=c2375c97db0bc4ecaf43539ffa81d27ba853e321fa5945818b5880081d49b428&o="
+            {
+                name: "Alejandro",
+                location: "Atlixco, México",
+                stars: 5,
+                date: "noviembre de 2025",
+                stay: "Estancia de varias noches",
+                text: "Excelente lugar para quedarse, en muy buena zona y con un gran anfitrión."
             },
-            3: {
-                id: 3,
-                name: "Morada Luna Coyoacán",
-                description: "Acogedor departamento en el histórico barrio de Coyoacán. A pocos pasos de la Casa Azul de Frida Kahlo y del centro cultural más importante del sur de la ciudad.",
-                max_guests: 4,
-                bedrooms: 2,
-                beds: 2,
-                bathrooms: 1,
-                square_meters: 60,
-                price_per_night: 1350,
-                amenities: ["WiFi", "TV", "Cocina", "Patio", "Estacionamiento", "Áreas verdes"],
-                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/769863284.jpg?k=3c56d2b0ff1ec71645aa88cc2b5e5aee0b988d2ba7407ca44d761c594897bfb2&o="
+            {
+                name: "Pierina",
+                location: "Huánuco, Perú",
+                stars: 5,
+                date: "octubre de 2025",
+                stay: "Estancia de varias noches",
+                text: "Me encantó, estaba un poco asustada por algunos comentarios que indicaban que era ruidoso y caliente, pero no tuvimos ninguno de los dos problemas, también funciona muy bien el agua caliente, el Internet es perfecto y rápido para hacer home office, todo perfecto, yo fui con mi hermano y pasamos unos días increíbles! También está de fácil acceso caminando, si disfrutan de caminar, les va a encantar!"
+            },
+            {
+                name: "María",
+                stars: 5,
+                date: "septiembre de 2025",
+                stay: "Estancia de 2 noches",
+                text: "Muy buena ubicación, el departamento está limpio y cómodo. El anfitrión siempre estuvo atento a nuestras necesidades. Recomendado."
+            },
+            {
+                name: "Carlos",
+                location: "Guadalajara, México",
+                stars: 5,
+                date: "agosto de 2025",
+                stay: "Estancia de fin de semana",
+                text: "Excelente experiencia, todo estaba impecable. La ubicación es perfecta para conocer la ciudad. Definitivamente volvería."
             }
-        };
+        ];
 
         // Variables globales
-        let selectedPropertyId = null;
         let currentSearch = {
             checkIn: '2026-02-05',
             checkOut: '2026-02-09',
@@ -1454,6 +1378,7 @@
             setupEventListeners();
             updateWhatsAppButton();
             startSlideshow();
+            loadReviews();
             
             // Suavizar scroll a las secciones
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1473,6 +1398,37 @@
                 });
             });
         });
+
+        // Cargar reseñas
+        function loadReviews() {
+            const reviewsContainer = document.getElementById('reviews-container');
+            
+            reviews.forEach(review => {
+                const reviewCard = document.createElement('div');
+                reviewCard.className = 'review-card';
+                
+                // Crear estrellas
+                let starsHtml = '';
+                for (let i = 0; i < review.stars; i++) {
+                    starsHtml += '<i class="fas fa-star"></i>';
+                }
+                
+                reviewCard.innerHTML = `
+                    <div class="review-header">
+                        <div>
+                            <div class="reviewer-name">${review.name}</div>
+                            ${review.location ? `<div class="review-location">${review.location}</div>` : ''}
+                        </div>
+                        <div class="stars">${starsHtml}</div>
+                    </div>
+                    <div class="review-date">${review.date}</div>
+                    <div class="review-stay">${review.stay}</div>
+                    <div class="review-text">"${review.text}"</div>
+                `;
+                
+                reviewsContainer.appendChild(reviewCard);
+            });
+        }
 
         // Slideshow functions
         function startSlideshow() {
@@ -1507,8 +1463,14 @@
 
         // WhatsApp functions
         function openWhatsApp(propertyName) {
-            const message = encodeURIComponent(`¡Hola! Estoy interesado en la propiedad "${propertyName}". ¿Podrían darme más información sobre disponibilidad y precios?`);
+            const message = encodeURIComponent(`¡Hola! Estoy interesado en la propiedad "${propertyName}". ¿Podrían darme más información sobre disponibilidad?`);
             window.open(`https://wa.me/5215511406820?text=${message}`, '_blank');
+        }
+
+        // Función para búsqueda en Google con IA
+        function searchGoogle(query) {
+            const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query + " inteligencia artificial búsqueda profesional")}`;
+            window.open(searchUrl, '_blank');
         }
 
         function setDefaultDates() {
@@ -1584,114 +1546,11 @@
             currentSearch = { checkIn, checkOut, adults, children };
             
             // Simular búsqueda
-            alert(`Buscando disponibilidad para:\n${checkIn} al ${checkOut}\n${adults} adultos, ${children} niños\n\n(En producción, esto consultaría la base de datos Supabase)`);
+            alert(`Buscando disponibilidad para:\n${checkIn} al ${checkOut}\n${adults} adultos, ${children} niños\n\nRedirigiendo a WhatsApp para consultar disponibilidad...`);
             
-            // En una implementación real, aquí se filtrarían las propiedades disponibles
-        }
-
-        function selectProperty(propertyId) {
-            selectedPropertyId = propertyId;
-            const property = properties[propertyId];
-            
-            if (!property) return;
-            
-            // Ocultar lista de propiedades, mostrar detalles de reserva
-            document.getElementById('propiedades').classList.add('hidden');
-            document.getElementById('booking-details').classList.remove('hidden');
-            
-            // Actualizar detalles de la propiedad
-            document.getElementById('property-title').textContent = property.name;
-            document.getElementById('property-guests').textContent = property.max_guests;
-            document.getElementById('property-size').textContent = property.square_meters;
-            document.getElementById('property-beds').textContent = property.beds;
-            document.getElementById('property-image').src = property.image;
-            document.getElementById('property-image').alt = property.name;
-            
-            // Actualizar amenities
-            const amenitiesContainer = document.getElementById('property-amenities');
-            amenitiesContainer.innerHTML = '';
-            
-            property.amenities.forEach(amenity => {
-                const span = document.createElement('span');
-                span.className = 'amenity';
-                span.textContent = amenity;
-                amenitiesContainer.appendChild(span);
-            });
-            
-            // Actualizar detalles de la reserva
-            document.getElementById('selected-checkin').textContent = currentSearch.checkIn;
-            document.getElementById('selected-checkout').textContent = currentSearch.checkOut;
-            document.getElementById('selected-guests').textContent = 
-                `${currentSearch.adults} adultos, ${currentSearch.children} niños`;
-            
-            // Calcular precio
-            calculateTotalPrice(property);
-            
-            // Scroll a la sección de reserva
-            document.getElementById('booking-details').scrollIntoView({ behavior: 'smooth' });
-            
-            // Actualizar botón de WhatsApp para esta propiedad
-            updateWhatsAppForProperty(property);
-        }
-
-        function calculateTotalPrice(property) {
-            if (!currentSearch.checkIn || !currentSearch.checkOut) return;
-            
-            const checkIn = new Date(currentSearch.checkIn);
-            const checkOut = new Date(currentSearch.checkOut);
-            const nights = Math.ceil((checkOut - checkIn) / (1000 * 60 * 60 * 24));
-            
-            const total = nights * property.price_per_night;
-            
-            // Formatear con separadores de miles
-            const formattedTotal = total.toLocaleString('es-MX');
-            
-            document.getElementById('total-price').textContent = 
-                `$${formattedTotal} MXN (${nights} noches)`;
-        }
-
-        function updateWhatsAppForProperty(property) {
-            const whatsappButton = document.getElementById('whatsappButton');
-            const message = encodeURIComponent(
-                `¡Hola! Estoy interesado en reservar "${property.name}" del ${currentSearch.checkIn} al ${currentSearch.checkOut}. ¿Podrían darme más información?`
-            );
-            whatsappButton.href = `https://wa.me/5215511406820?text=${message}`;
-        }
-
-        function submitBooking() {
-            if (!selectedPropertyId) {
-                alert('Por favor, selecciona una propiedad primero');
-                return;
-            }
-            
-            const property = properties[selectedPropertyId];
-            const guestName = document.getElementById('guest-name').value;
-            const guestEmail = document.getElementById('guest-email').value;
-            
-            // Calcular noches
-            const checkIn = new Date(currentSearch.checkIn);
-            const checkOut = new Date(currentSearch.checkOut);
-            const nights = Math.ceil((checkOut - checkIn) / (1000 * 60 * 60 * 24));
-            const total = nights * property.price_per_night;
-            const formattedTotal = total.toLocaleString('es-MX');
-            
-            // Simular envío a Supabase
-            alert(`🎉 ¡Reserva confirmada!\n\nPropiedad: ${property.name}\nFechas: ${currentSearch.checkIn} al ${currentSearch.checkOut}\nHuéspedes: ${guestName}\nEmail: ${guestEmail}\nTotal: $${formattedTotal} MXN\n\nEn producción, estos datos se guardarían en Supabase y se enviaría un email de confirmación.`);
-            
-            // Resetear formulario
-            document.getElementById('booking-form').reset();
-            
-            // Volver a propiedades
-            goBackToProperties();
-        }
-
-        function goBackToProperties() {
-            document.getElementById('booking-details').classList.add('hidden');
-            document.getElementById('propiedades').classList.remove('hidden');
-            document.getElementById('propiedades').scrollIntoView({ behavior: 'smooth' });
-            
-            // Restaurar botón de WhatsApp general
-            updateWhatsAppButton();
+            // Abrir WhatsApp con los detalles de búsqueda
+            const message = encodeURIComponent(`¡Hola! Me gustaría consultar disponibilidad para estas fechas:\n• Check-in: ${checkIn}\n• Check-out: ${checkOut}\n• ${adults} adultos, ${children} niños`);
+            window.open(`https://wa.me/5215511406820?text=${message}`, '_blank');
         }
     </script>
 </body>
