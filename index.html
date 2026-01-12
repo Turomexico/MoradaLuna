@@ -511,146 +511,100 @@
             line-height: 1.4;
         }
 
-        /* Sección de reseñas ultra minimalista */
-        .reviews-section {
-            max-width: 800px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .reviews-container {
-            max-width: 800px;
+        /* Estilos para reseñas cuadriculadas (solo 6) */
+        .reviews-grid-container {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 1rem;
         }
 
-        .review-item-minimal {
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .review-card-grid {
             background: white;
             border-radius: 12px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-            border-left: 3px solid #4a6fa5;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            height: 100%;
+            border: 1px solid #f0f0f0;
         }
 
-        .review-header-minimal {
+        .review-card-grid:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .reviewer-info-grid {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
-        .reviewer-info-minimal {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .reviewer-avatar-minimal {
-            width: 32px;
-            height: 32px;
+        .reviewer-avatar-grid {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #4a6fa5, #6d9dc5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 0.8rem;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 2px solid #4a6fa5;
         }
 
-        .reviewer-name-minimal {
+        .reviewer-avatar-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .reviewer-details-grid {
+            flex-grow: 1;
+        }
+
+        .reviewer-name-grid {
             font-weight: 600;
             color: #333;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
         }
 
-        .stars-mini {
+        .stars-grid {
             color: #FFD700;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
         }
 
-        .review-date-minimal {
+        .review-date-grid {
             color: #888;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-style: italic;
         }
 
-        .review-text-minimal {
+        .review-text-grid {
             color: #555;
-            line-height: 1.4;
-            font-size: 0.85rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            line-height: 1.6;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+            flex-grow: 1;
         }
 
-        /* Scroll de imágenes para propiedades */
-        .image-scroll-container {
-            position: relative;
-            margin: 2rem 0;
-        }
-
-        .scroll-wrapper {
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            display: flex;
-            gap: 1rem;
-            padding: 1rem 0;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE and Edge */
-        }
-
-        .scroll-wrapper::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
-        }
-
-        .scroll-image {
-            min-width: 280px;
-            height: 200px;
-            border-radius: 10px;
-            object-fit: cover;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .scroll-image:hover {
-            transform: scale(1.02);
-        }
-
-        .scroll-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.2rem;
+        .review-highlight-grid {
             color: #4a6fa5;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            z-index: 10;
-            transition: all 0.3s;
-        }
-
-        .scroll-btn:hover {
-            background: white;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .scroll-btn.prev {
-            left: -20px;
-        }
-
-        .scroll-btn.next {
-            right: -20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.5rem 0.8rem;
+            background: #f0f7ff;
+            border-radius: 6px;
+            border-left: 3px solid #4a6fa5;
+            margin-top: auto;
         }
 
         /* Sección Explora CDMX */
@@ -721,22 +675,11 @@
             margin-top: 0.5rem;
         }
 
-        /* Sección de propiedades simplificada con scroll */
+        /* Sección de propiedades simplificada */
         .properties-section {
             max-width: 1200px;
             margin: 3rem auto;
             padding: 0 2rem;
-        }
-
-        .property-scroll-section {
-            margin: 3rem 0;
-        }
-
-        .property-scroll-section h3 {
-            text-align: center;
-            color: #4a6fa5;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
         }
 
         .properties-grid {
@@ -879,11 +822,12 @@
             gap: 10px;
         }
 
-        /* Redes sociales con efecto de elevación */
+        /* Redes sociales con efecto de elevación - MEJORADO */
         .social-icons {
             display: flex;
-            gap: 1.2rem;
+            gap: 1rem;
             margin-top: 1rem;
+            flex-wrap: wrap;
         }
 
         .social-icons a {
@@ -924,17 +868,42 @@
             opacity: 1;
         }
 
-        /* Efectos específicos para cada red social */
-        .social-icons a:nth-child(1):hover {
+        /* Efectos específicos para cada red social - CON COLORES ORIGINALES */
+        .social-icons a.instagram:hover {
             background: linear-gradient(145deg, #E1306C, #C13584);
         }
 
-        .social-icons a:nth-child(2):hover {
+        .social-icons a.facebook:hover {
             background: linear-gradient(145deg, #1877F2, #0A5BC4);
         }
 
-        .social-icons a:nth-child(3):hover {
+        .social-icons a.whatsapp:hover {
             background: linear-gradient(145deg, #25D366, #128C7E);
+        }
+
+        .social-icons a.airbnb:hover {
+            background: linear-gradient(145deg, #FF5A5F, #E04A50);
+        }
+
+        /* Estilo para icono de soporte técnico - MEJORADO */
+        .social-icons a.tech-support {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            position: relative;
+        }
+
+        .social-icons a.tech-support:hover {
+            background: linear-gradient(145deg, #3498db, #2980b9);
+        }
+
+        .social-icons a.tech-support img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+            transition: filter 0.3s;
+        }
+
+        .social-icons a.tech-support:hover img {
+            filter: brightness(0) invert(1);
         }
 
         .footer-bottom {
@@ -964,8 +933,8 @@
                 gap: 2rem;
             }
             
-            .scroll-btn {
-                display: none;
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -1014,6 +983,14 @@
                 grid-template-columns: 1fr;
             }
             
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .review-card-grid {
+                min-width: 100%;
+            }
+            
             .footer-content {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -1049,13 +1026,23 @@
                 font-size: 1.8rem;
             }
             
-            .review-item-minimal {
-                padding: 0.8rem;
+            .review-card-grid {
+                padding: 1.5rem;
             }
             
-            .scroll-image {
-                min-width: 240px;
-                height: 180px;
+            .social-icons {
+                gap: 0.8rem;
+            }
+            
+            .social-icons a {
+                width: 42px;
+                height: 42px;
+                font-size: 1.2rem;
+            }
+            
+            .social-icons a.tech-support img {
+                width: 20px;
+                height: 20px;
             }
         }
     </style>
@@ -1125,6 +1112,16 @@
         <!-- Sección de búsqueda -->
         <section class="search-section">
             <div class="search-box">
+                <div class="search-input">
+                    <label>Lugar</label>
+                    <select id="location">
+                        <option value="">Seleccionar lugar</option>
+                        <option value="Roma Norte">Roma Norte</option>
+                        <option value="Coyoacán">Coyoacán</option>
+                        <option value="Polanco">Polanco</option>
+                        <option value="Condesa">Condesa</option>
+                    </select>
+                </div>
                 <div class="search-input">
                     <label>Check-in</label>
                     <input type="date" id="checkin-date">
@@ -1280,13 +1277,15 @@
             </div>
         </section>
 
-        <!-- Sección de Reseñas Ultra Minimalista -->
+        <!-- Sección de Reseñas MEJORADA (solo 6, sin carrusel) -->
         <section class="reviews-section" id="reseñas">
             <h2 class="section-title">Lo que dicen nuestros huéspedes</h2>
-            <p class="section-subtitle">Reseñas recientes de nuestros alojamientos</p>
+            <p class="section-subtitle">Nuestras Últimas 6 Reseñas</p>
             
-            <div class="reviews-container" id="reviews-container">
-                <!-- Las reseñas se cargarán dinámicamente aquí -->
+            <div class="reviews-grid-container">
+                <div class="reviews-grid" id="reviewsGrid">
+                    <!-- Las reseñas se cargarán dinámicamente aquí (solo 6) -->
+                </div>
             </div>
         </section>
 
@@ -1297,7 +1296,7 @@
                 <p class="section-subtitle">Descubre los lugares más emblemáticos y vivas la cultura mexicana durante tu estancia.</p>
                 
                 <div class="explore-grid">
-                    <div class="attraction-card" onclick="searchGoogle('Centro Histórico Ciudad de México atracciones turísticas')">
+                    <div class="attraction-card" onclick="window.open('https://maps.app.goo.gl/xT7tjaAPmsKpJy3e8', '_blank')">
                         <img src="https://media.cntraveler.com/photos/5a92f25dc6516a534a5304e9/master/w_1024%2Cc_limit/Metropolitan-Cathedral_GettyImages-115006326.jpg" alt="Centro Histórico" class="attraction-image">
                         <div class="attraction-content">
                             <h3>Centro Histórico</h3>
@@ -1306,7 +1305,7 @@
                         </div>
                     </div>
                     
-                    <div class="attraction-card" onclick="searchGoogle('Parque Chapultepec Castillo Ciudad de México')">
+                    <div class="attraction-card" onclick="window.open('https://share.google/I69mklEhWdlmedbIP', '_blank')">
                         <img src="https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/08/13235022/chapultepec-mexico-002.jpg" alt="Chapultepec" class="attraction-image">
                         <div class="attraction-content">
                             <h3>Parque de Chapultepec</h3>
@@ -1315,7 +1314,7 @@
                         </div>
                     </div>
                     
-                    <div class="attraction-card" onclick="searchGoogle('Museo Frida Kahlo Casa Azul Coyoacán')">
+                    <div class="attraction-card" onclick="window.open('https://share.google/qPf6okZBEFCPALFok', '_blank')">
                         <img src="https://media.admagazine.com/photos/62dad7efef35b9d5f2a98871/16:9/w_2560%2Cc_limit/GettyImages-1125944655.jpg" alt="Frida Kahlo" class="attraction-image">
                         <div class="attraction-content">
                             <h3>Museo Frida Kahlo</h3>
@@ -1333,7 +1332,7 @@
                         </div>
                     </div>
                     
-                    <div class="attraction-card" onclick="searchGoogle('Teotihuacán pirámides Ciudad de México tours')">
+                    <div class="attraction-card" onclick="window.open('https://share.google/uyoswKtnNAfayxnBE', '_blank')">
                         <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/79D9/production/_99739113_gettyimages-73656849.jpg.webp" alt="Teotihuacán" class="attraction-image">
                         <div class="attraction-content">
                             <h3>Teotihuacán</h3>
@@ -1342,7 +1341,7 @@
                         </div>
                     </div>
                     
-                    <div class="attraction-card" onclick="searchGoogle('Xochimilco trajineras Ciudad de México')">
+                    <div class="attraction-card" onclick="window.open('https://share.google/SX4M3FbP8cKQTjyW3', '_blank')">
                         <img src="https://github.com/Turomexico/MoradaLuna/blob/main/Xochimilco%201.jpg?raw=true" alt="Xochimilco" class="attraction-image">
                         <div class="attraction-content">
                             <h3>Xochimilco</h3>
@@ -1355,7 +1354,7 @@
                 <div style="text-align: center; margin-top: 3rem;">
                     <p style="color: #666; font-size: 1.1rem; max-width: 800px; margin: 0 auto 1.5rem;">
                         <i class="fas fa-lightbulb" style="color: #4a6fa5; margin-right: 10px;"></i>
-                        <strong>Tip de Morada Luna:</strong> Haz clic en cualquier imagen para buscar información profesional con IA sobre ese lugar en Google.
+                        <strong>Tip de Morada Luna:</strong> Haz clic en cualquier imagen para tener información sobre ese lugar en Google/Maps.
                     </p>
                     <a href="https://wa.me/5215511406820?text=¡Hola! Necesito recomendaciones para mi viaje a CDMX" class="btn-visit" target="_blank" style="text-decoration: none;">Solicitar Recomendaciones</a>
                 </div>
@@ -1367,7 +1366,16 @@
             <h2 class="section-title">Nuestros Alojamientos</h2>
             
             <div id="properties-grid" class="properties-grid">
-                <!-- Propiedad 1: Morada Luna Roma Norte -->
+                <!-- Propiedad 1: Morada Luna Condesa -->
+                <div class="property-card-simple">
+                    <img src="https://moradaluna.com.mx/wp-content/uploads/2024/06/header-2.jpg" alt="Morada Luna Condesa">
+                    <div class="property-content-simple">
+                        <h3>Morada Luna Condesa</h3>
+                        <button class="btn-visit" onclick="openWhatsApp('Morada Luna Condesa')">Reservar</button>
+                    </div>
+                </div>
+
+                <!-- Propiedad 2: Morada Luna Roma Norte -->
                 <div class="property-card-simple">
                     <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1270521288480613949/original/9a10b18c-7b51-4fb1-82b0-1923e0d799ea.jpeg?im_w=720" alt="Morada Luna Roma Norte">
                     <div class="property-content-simple">
@@ -1376,7 +1384,7 @@
                     </div>
                 </div>
 
-                <!-- Propiedad 2: Morada Luna Polanco -->
+                <!-- Propiedad 3: Morada Luna Polanco -->
                 <div class="property-card-simple">
                     <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/486455253.jpg?k=c2375c97db0bc4ecaf43539ffa81d27ba853e321fa5945818b5880081d49b428&o=" alt="Morada Luna Polanco">
                     <div class="property-content-simple">
@@ -1385,7 +1393,7 @@
                     </div>
                 </div>
 
-                <!-- Propiedad 3: Morada Luna Coyoacán -->
+                <!-- Propiedad 4: Morada Luna Coyoacán -->
                 <div class="property-card-simple">
                     <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/769863284.jpg?k=3c56d2b0ff1ec71645aa88cc2b5e5aee0b988d2ba7407ca44d761c594897bfb2&o=" alt="Morada Luna Coyoacán">
                     <div class="property-content-simple">
@@ -1444,14 +1452,26 @@
                 <h4>Síguenos</h4>
                 <p style="color: #ddd; margin-bottom: 1rem;">Síguenos en nuestras redes sociales para ofertas especiales y novedades.</p>
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/hotelitomoradaluna/" target="_blank" title="Instagram">
+                    <a href="https://www.instagram.com/hotelitomoradaluna/" target="_blank" title="Instagram" class="instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://www.facebook.com/p/Morada-Luna-100054492428152/?locale=es_LA" target="_blank" title="Facebook">
+                    <a href="https://www.facebook.com/p/Morada-Luna-100054492428152/?locale=es_LA" target="_blank" title="Facebook" class="facebook">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://wa.me/5215511406820" target="_blank" title="WhatsApp">
+                    <a href="https://wa.me/5215511406820" target="_blank" title="WhatsApp" class="whatsapp">
                         <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.airbnb.mx/rooms/1259085572925875795?source_impression_id=p3_1768249398_P3B3kTJxYVvlJOVu" 
+                       target="_blank" 
+                       title="Airbnb"
+                       class="airbnb">
+                        <i class="fab fa-airbnb"></i>
+                    </a>
+                    <a href="https://wa.me/2225165117?text=¡Hola! Necesito soporte técnico para Morada Luna" 
+                       target="_blank" 
+                       title="Soporte Técnico"
+                       class="tech-support">
+                        <img src="https://www.clipartmax.com/png/middle/114-1142273_technical-support-it-tech-support-icon.png" alt="Soporte Técnico">
                     </a>
                 </div>
             </div>
@@ -1463,42 +1483,61 @@
     </footer>
 
     <script>
-        // Datos de las reseñas (simuladas basadas en los ejemplos proporcionados)
+        // Datos de las reseñas con URLs de avatares de IA (solo 6)
         const reviews = [
             {
                 name: "Alvaro",
                 stars: 5,
-                date: "Hace 3 semanas",
-                text: "Es bonito el alojamiento, muy limpio pero hace mucho calor aún en invierno pues no tiene ventilación."
+                date: "Hace 1 semana",
+                text: "Todo fue excelente durante mi estancia, muy limpio y cómodo. Isabel en todo momento fue una excelente Anfitriona, muy atenta a nuestras necesidades.",
+                highlight: "Anfitriona excepcional y ubicación perfecta",
+                avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alvaro&backgroundColor=4a6fa5"
             },
             {
                 name: "Alejandro",
                 stars: 5,
                 date: "noviembre 2025",
-                text: "Excelente lugar para quedarse, en muy buena zona y con un gran anfitrión."
+                text: "Excelente lugar para quedarse, en muy buena zona y con un gran anfitrión. La comunicación fue excelente y el lugar muy limpio y acogedor.",
+                highlight: "Ubicación perfecta cerca de todo",
+                avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alejandro&backgroundColor=4a6fa5"
             },
             {
                 name: "Pierina",
                 stars: 5,
                 date: "octubre 2025",
-                text: "Me encantó, todo perfecto. El Internet es rápido para home office, pasamos unos días increíbles."
+                text: "Me encantó, todo perfecto. El Internet es rápido para home office. El departamento está muy bien equipado y la atención fue excepcional.",
+                highlight: "Ideal para trabajo remoto",
+                avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Pierina&backgroundColor=4a6fa5"
             },
             {
                 name: "María",
                 stars: 5,
                 date: "septiembre 2025",
-                text: "Muy buena ubicación, el departamento está limpio y cómodo. El anfitrión siempre atento."
+                text: "Muy buena ubicación, el departamento está limpio y cómodo. El anfitrión siempre estuvo atento a nuestras necesidades. Definitivamente volvería.",
+                highlight: "Anfitrión siempre atento",
+                avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maria&backgroundColor=4a6fa5"
             },
             {
                 name: "Carlos",
                 stars: 5,
                 date: "agosto 2025",
-                text: "Excelente experiencia, todo impecable. La ubicación perfecta para conocer la ciudad."
+                text: "Excelente experiencia, todo impecable para conocer la ciudad. La ubicación es ideal para turistear. Recomendado 100%.",
+                highlight: "Todo superó mis expectativas",
+                avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Carlos&backgroundColor=4a6fa5"
+            },
+            {
+                name: "Fernanda",
+                stars: 5,
+                date: "julio 2025",
+                text: "Increíble experiencia desde el check-in hasta el check-out. El departamento es exactamente como se ve en las fotos. Muy cómodo y bien ubicado.",
+                highlight: "Experiencia perfecta de principio a fin",
+                avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Fernanda&backgroundColor=4a6fa5"
             }
         ];
 
         // Variables globales
         let currentSearch = {
+            location: '',
             checkIn: '2026-02-05',
             checkOut: '2026-02-09',
             adults: 2,
@@ -1516,8 +1555,8 @@
             setDefaultDates();
             setupEventListeners();
             startSlideshow();
-            loadReviews();
             setupWhatsAppModal();
+            initReviewsGrid();
             
             // Suavizar scroll a las secciones
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1566,37 +1605,45 @@
             });
         }
 
-        // Cargar reseñas ultra minimalistas
-        function loadReviews() {
-            const reviewsContainer = document.getElementById('reviews-container');
+        // Inicializar cuadrícula de reseñas (solo 6)
+        function initReviewsGrid() {
+            const reviewsGrid = document.getElementById('reviewsGrid');
             
-            reviews.forEach(review => {
-                const reviewItem = document.createElement('div');
-                reviewItem.className = 'review-item-minimal';
-                
-                // Obtener inicial del nombre para el avatar
-                const initial = review.name.charAt(0);
-                
-                // Crear estrellas
-                let starsHtml = '';
-                for (let i = 0; i < review.stars; i++) {
-                    starsHtml += '<i class="fas fa-star"></i>';
-                }
-                
-                reviewItem.innerHTML = `
-                    <div class="review-header-minimal">
-                        <div class="reviewer-info-minimal">
-                            <div class="reviewer-avatar-minimal">${initial}</div>
-                            <div class="reviewer-name-minimal">${review.name}</div>
-                        </div>
-                        <div class="stars-mini">${starsHtml}</div>
-                    </div>
-                    <div class="review-date-minimal">${review.date}</div>
-                    <div class="review-text-minimal">"${review.text}"</div>
-                `;
-                
-                reviewsContainer.appendChild(reviewItem);
+            // Agregar solo las 6 reseñas a la cuadrícula
+            reviews.forEach((review, index) => {
+                const reviewCard = createReviewCardGrid(review, index);
+                reviewsGrid.appendChild(reviewCard);
             });
+        }
+
+        // Crear tarjeta de reseña para cuadrícula
+        function createReviewCardGrid(review, index) {
+            const reviewCard = document.createElement('div');
+            reviewCard.className = 'review-card-grid';
+            reviewCard.dataset.index = index;
+            
+            // Crear estrellas
+            let starsHtml = '';
+            for (let i = 0; i < review.stars; i++) {
+                starsHtml += '<i class="fas fa-star"></i>';
+            }
+            
+            reviewCard.innerHTML = `
+                <div class="reviewer-info-grid">
+                    <div class="reviewer-avatar-grid">
+                        <img src="${review.avatar}" alt="${review.name}">
+                    </div>
+                    <div class="reviewer-details-grid">
+                        <div class="reviewer-name-grid">${review.name}</div>
+                        <div class="stars-grid">${starsHtml}</div>
+                        <div class="review-date-grid">${review.date}</div>
+                    </div>
+                </div>
+                <div class="review-text-grid">"${review.text}"</div>
+                <div class="review-highlight-grid">${review.highlight}</div>
+            `;
+            
+            return reviewCard;
         }
 
         // Slideshow functions
@@ -1638,7 +1685,7 @@
 
         // Función para búsqueda en Google con IA
         function searchGoogle(query) {
-            const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query + " inteligencia artificial búsqueda profesional")}`;
+            const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
             window.open(searchUrl, '_blank');
         }
 
@@ -1658,6 +1705,11 @@
         }
 
         function setupEventListeners() {
+            // Actualizar ubicación
+            document.getElementById('location').addEventListener('change', function(e) {
+                currentSearch.location = e.target.value;
+            });
+            
             // Actualizar check-out mínimo cuando cambia check-in
             document.getElementById('checkin-date').addEventListener('change', function(e) {
                 currentSearch.checkIn = e.target.value;
@@ -1689,12 +1741,18 @@
         }
 
         function performSearch() {
+            const location = document.getElementById('location').value;
             const checkIn = document.getElementById('checkin-date').value;
             const checkOut = document.getElementById('checkout-date').value;
             const adults = parseInt(document.getElementById('adults').value);
             const children = parseInt(document.getElementById('children').value);
             
             // Validaciones
+            if (!location) {
+                alert('Por favor, selecciona una ubicación');
+                return;
+            }
+            
             if (!checkIn || !checkOut) {
                 alert('Por favor, selecciona fechas de check-in y check-out');
                 return;
@@ -1705,14 +1763,36 @@
                 return;
             }
             
-            currentSearch = { checkIn, checkOut, adults, children };
+            currentSearch = { location, checkIn, checkOut, adults, children };
+            
+            // Formatear fecha para mostrar
+            function formatDateForDisplay(dateStr) {
+                const date = new Date(dateStr);
+                return date.toLocaleDateString('es-ES', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                });
+            }
+            
+            // Crear mensaje para WhatsApp
+            let message = `¡Hola! Me gustaría consultar disponibilidad:\n\n`;
+            message += `📍 *Ubicación:* ${location}\n`;
+            message += `📅 *Ingreso:* ${formatDateForDisplay(checkIn)}\n`;
+            message += `📅 *Salida:* ${formatDateForDisplay(checkOut)}\n`;
+            message += `👨‍👩‍👧‍👦 *Personas:* ${adults} ${adults === 1 ? 'Adulto' : 'Adultos'}`;
+            
+            if (children > 0) {
+                message += `\n👶 *Niños:* ${children} ${children === 1 ? 'Niño' : 'Niños'}`;
+            }
+            
+            message += `\n\n¿Podrían ayudarme con la disponibilidad?`;
             
             // Simular búsqueda
-            alert(`Buscando disponibilidad para:\n${checkIn} al ${checkOut}\n${adults} adultos, ${children} niños\n\nRedirigiendo a WhatsApp para consultar disponibilidad...`);
+            alert(`Buscando disponibilidad en ${location} para:\n${checkIn} al ${checkOut}\n${adults} adultos, ${children} niños\n\nRedirigiendo a WhatsApp...`);
             
-            // Abrir WhatsApp con los detalles de búsqueda
-            const message = encodeURIComponent(`¡Hola! Me gustaría consultar disponibilidad para estas fechas:\n• Check-in: ${checkIn}\n• Check-out: ${checkOut}\n• ${adults} adultos, ${children} niños`);
-            window.open(`https://wa.me/5215511406820?text=${message}`, '_blank');
+            // Abrir WhatsApp con el mensaje formateado
+            window.open(`https://wa.me/5215511406820?text=${encodeURIComponent(message)}`, '_blank');
         }
     </script>
 </body>
