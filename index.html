@@ -911,6 +911,11 @@
             font-size: 1rem;
         }
 
+        .amenity-text p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
         .fifa-cta {
             text-align: center;
             padding: 3rem;
@@ -1480,7 +1485,7 @@
                 
                 <div class="fifa-players">
                     <div class="player-card">
-                        <img src="https://media.cnn.com/api/v1/images/stellar/prod/231112093254-01-lionel-messi-the-best-awards.jpg?c=16x9&q=h_720,w_1280,c_fill" alt="Lionel Messi" class="player-image">
+                        <img src="https://a.espncdn.com/i/headshots/soccer/players/full/45843.png" alt="Lionel Messi" class="player-image">
                         <div class="player-info">
                             <h4>Lionel Messi</h4>
                             <p>8 veces Balón de Oro, campeón del Mundial 2022. Posiblemente su último mundial.</p>
@@ -1488,7 +1493,7 @@
                     </div>
                     
                     <div class="player-card">
-                        <img src="https://assets.goal.com/images/v3/blt19ce7b4d9005330e/CR7.jpg?auto=webp&format=pjpg&width=3840&quality=60" alt="Cristiano Ronaldo" class="player-image">
+                        <img src="https://img.uefa.com/imgml/TP/players/2014/2025/cutoff/63706.webp" alt="Cristiano Ronaldo" class="player-image">
                         <div class="player-info">
                             <h4>Cristiano Ronaldo</h4>
                             <p>5 veces Balón de Oro, máximo goleador histórico. Buscará su primer mundial.</p>
@@ -1496,7 +1501,7 @@
                     </div>
                     
                     <div class="player-card">
-                        <img src="https://phantom-marca.unidadeditorial.es/2d189dcfb252a0ff3fa74aa86b2e7a6d/resize/828/f/jpg/assets/multimedia/imagenes/2023/11/13/16998826582725.jpg" alt="Kylian Mbappé" class="player-image">
+                        <img src="https://img.uefa.com/imgml/TP/players/2014/2025/cutoff/250076574.webp" alt="Kylian Mbappé" class="player-image">
                         <div class="player-info">
                             <h4>Kylian Mbappé</h4>
                             <p>Campeón del mundo 2018, estrella emergente y futuro del fútbol mundial.</p>
@@ -1504,7 +1509,7 @@
                     </div>
                     
                     <div class="player-card">
-                        <img src="https://images2.minutemediacdn.com/image/upload/c_crop,w_5333,h_3000,x_0,y_271/c_fill,w_1440,ar_16:9,f_auto,q_auto,g_auto/images/GettyImages/mmsport/90min_en_international_web/01h2c4hk4kdz2rcqv3cq.jpg" alt="Erling Haaland" class="player-image">
+                        <img src="https://img.uefa.com/imgml/TP/players/1/2026/cutoff/250103758.webp" alt="Erling Haaland" class="player-image">
                         <div class="player-info">
                             <h4>Erling Haaland</h4>
                             <p>Máquina goleadora noruega, uno de los jugadores más temidos del planeta.</p>
@@ -1587,8 +1592,8 @@
                                 <i class="fas fa-tv"></i>
                             </div>
                             <div class="amenity-text">
-                                <h4>Pantallas 4K</h4>
-                                <p>TVs de 55" con todos los canales deportivos</p>
+                                <h4>Pantallas de 40 Pulgadas Full HD</h4>
+                                <p>TVs de 40" Full HD con todos los canales deportivos</p>
                             </div>
                         </div>
                         
@@ -1617,18 +1622,18 @@
                                 <i class="fas fa-shuttle-van"></i>
                             </div>
                             <div class="amenity-text">
-                                <h4>Transporte al Estadio</h4>
-                                <p>Shuttles directos al Azteca</p>
+                                <h4>Apoyo para solicitud de transporte al Estadio</h4>
+                                <p>Asistencia con Uber, Didi y otras apps</p>
                             </div>
                         </div>
                         
                         <div class="amenity-item">
                             <div class="amenity-icon">
-                                <i class="fas fa-concierge-bell"></i>
+                                <i class="fas fa-map-signs"></i>
                             </div>
                             <div class="amenity-text">
-                                <h4>Guías Turísticos</h4>
-                                <p>Experiencias futboleras en CDMX</p>
+                                <h4>Zonas Turísticas Cercanas al Alojamiento</h4>
+                                <p>Información y acceso a atracciones cercanas</p>
                             </div>
                         </div>
                         
@@ -1646,9 +1651,9 @@
 
                 <!-- CTA Final -->
                 <div class="fifa-cta">
-                    <h3>¡Reserva Tu Estancia para el Mundial 2026!</h3>
+                    <h3>¡Reserva Tu Estancia para el Mundial 2026 En Morada Luna!</h3>
                     <p>Las reservas para el período del mundial ya están abiertas. Asegura tu alojamiento en la mejor ubicación de Ciudad de México para vivir la experiencia futbolera más grande del planeta.</p>
-                    <button class="btn-fifa" onclick="openWhatsApp('Reserva para FIFA 2026™')">Reservar Ahora</button>
+                    <button class="btn-fifa" onclick="reserveWithFIFAAnimation()">Reservar Ahora</button>
                 </div>
             </div>
         </div>
@@ -2266,6 +2271,84 @@
             `;
             
             return reviewCard;
+        }
+
+        // Función para reservar con animación de fútbol
+        function reserveWithFIFAAnimation() {
+            const fifaModal = document.getElementById('fifaModal');
+            const fifaBody = document.querySelector('.fifa-body');
+            
+            // Crear overlay de animación
+            const animationOverlay = document.createElement('div');
+            animationOverlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, #0033a0, #ce1126);
+                z-index: 2001;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            `;
+            
+            // Agregar contenido de animación
+            animationOverlay.innerHTML = `
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">
+                        ⚽ 🏆 🌎
+                    </div>
+                    <h2 style="font-size: 3rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                        FIFA 2026™
+                    </h2>
+                    <p style="font-size: 1.5rem; margin-bottom: 2rem; max-width: 600px;">
+                        ¡Preparando tu experiencia para el Mundial en México!
+                    </p>
+                    <div style="width: 80px; height: 80px; border: 5px solid white; 
+                                border-radius: 50%; border-top-color: transparent;
+                                animation: spin 1s linear infinite;"></div>
+                    <p style="margin-top: 2rem; font-size: 1.2rem;">
+                        Redirigiendo a WhatsApp en 3 segundos...
+                    </p>
+                </div>
+            `;
+            
+            // Agregar estilos para la animación
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Insertar la animación
+            document.body.appendChild(animationOverlay);
+            
+            // Deshabilitar scroll
+            document.body.style.overflow = 'hidden';
+            
+            // Esperar 3 segundos antes de redirigir
+            setTimeout(() => {
+                // Remover animación
+                document.body.removeChild(animationOverlay);
+                document.head.removeChild(style);
+                
+                // Restaurar scroll
+                document.body.style.overflow = 'auto';
+                
+                // Cerrar modal FIFA
+                fifaModal.style.display = 'none';
+                
+                // Abrir WhatsApp
+                const message = encodeURIComponent('¡Hola! Me interesa reservar mi estancia para el Mundial FIFA 2026 en Morada Luna. ¿Podrían ayudarme con más información?');
+                window.open(`https://wa.me/5215511406820?text=${message}`, '_blank');
+            }, 3000);
         }
 
         // Slideshow functions
