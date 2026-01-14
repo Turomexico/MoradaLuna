@@ -981,7 +981,7 @@
             background: rgba(255, 255, 255, 0.3);
         }
 
-        /* Sección Explora CDMX */
+        /* Sección Explora CDMX - MEJORADA */
         .explore-section {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 4rem 0;
@@ -1025,13 +1025,61 @@
             padding: 1.5rem;
         }
 
-        .attraction-content h3 {
+        .attraction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .attraction-header h3 {
             color: #4a6fa5;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0;
             font-size: 1.3rem;
         }
 
-        .attraction-content p {
+        .attraction-toggle-btn {
+            background: #4a6fa5;
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .attraction-toggle-btn:hover {
+            background: #3a5a8a;
+            transform: scale(1.1);
+        }
+
+        .attraction-toggle-btn i {
+            transition: transform 0.3s;
+        }
+
+        .attraction-toggle-btn.expanded i {
+            transform: rotate(180deg);
+        }
+
+        .attraction-info {
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.3s ease;
+        }
+
+        .attraction-info.expanded {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 1rem;
+        }
+
+        .attraction-info p {
             color: #555;
             line-height: 1.6;
             margin-bottom: 1rem;
@@ -1046,7 +1094,35 @@
             border-radius: 15px;
             font-size: 0.8rem;
             font-weight: 600;
-            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .attraction-actions {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .attraction-actions .btn-visit {
+            background-color: #4a6fa5;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+
+        .attraction-actions .btn-visit:hover {
+            background-color: #3a5a8a;
         }
 
         /* Sección de propiedades simplificada */
@@ -1887,64 +1963,148 @@
             </div>
         </section>
 
-        <!-- Sección Explora CDMX -->
+        <!-- Sección Explora CDMX - MEJORADA -->
         <section class="explore-section" id="explora-cdmx">
             <div class="explore-container">
                 <h2 class="section-title">Explora la Ciudad de México</h2>
                 <p class="section-subtitle">Descubre los lugares más emblemáticos y vivas la cultura mexicana durante tu estancia.</p>
                 
                 <div class="explore-grid">
-                    <div class="attraction-card" onclick="window.open('https://maps.app.goo.gl/xT7tjaAPmsKpJy3e8', '_blank')">
-                        <img src="https://media.cntraveler.com/photos/5a92f25dc6516a534a5304e9/master/w_1024%2Cc_limit/Metropolitan-Cathedral_GettyImages-115006326.jpg" alt="Centro Histórico" class="attraction-image">
+                    <!-- Tarjeta 1: Centro Histórico -->
+                    <div class="attraction-card">
+                        <img src="https://media.cntraveler.com/photos/5a92f25dc6516a534a5304e9/master/w_1024%2Cc_limit/Metropolitan-Cathedral_GettyImages-115006326.jpg" 
+                             alt="Centro Histórico" class="attraction-image">
                         <div class="attraction-content">
-                            <h3>Centro Histórico</h3>
-                            <p>Conoce la vibrante historia de Ciudad de México a través del Zócalo, la Catedral Metropolitana y el Palacio de Bellas Artes. Descubre sus museos, plazas y arquitectura colonial.</p>
-                            <span class="attraction-tag">Historia y Cultura</span>
+                            <div class="attraction-header">
+                                <h3>Centro Histórico</h3>
+                                <button class="attraction-toggle-btn" onclick="toggleAttractionInfo(this)">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="attraction-info">
+                                <p>Conoce la vibrante historia de Ciudad de México a través del Zócalo, la Catedral Metropolitana y el Palacio de Bellas Artes. Descubre sus museos, plazas y arquitectura colonial.</p>
+                                <span class="attraction-tag">Historia y Cultura</span>
+                                <div class="attraction-actions">
+                                    <button class="btn-visit" onclick="window.open('https://maps.app.goo.gl/xT7tjaAPmsKpJy3e8', '_blank')">
+                                        Ver en Maps <i class="fas fa-external-link-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="attraction-card" onclick="window.open('https://share.google/I69mklEhWdlmedbIP', '_blank')">
-                        <img src="https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/08/13235022/chapultepec-mexico-002.jpg" alt="Chapultepec" class="attraction-image">
+                    <!-- Tarjeta 2: Chapultepec -->
+                    <div class="attraction-card">
+                        <img src="https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/08/13235022/chapultepec-mexico-002.jpg" 
+                             alt="Chapultepec" class="attraction-image">
                         <div class="attraction-content">
-                            <h3>Parque de Chapultepec</h3>
-                            <p>Descubre la belleza del Bosque de Chapultepec y conoce la historia de México en el magnífico Castillo de Chapultepec. El parque urbano más grande de Latinoamérica.</p>
-                            <span class="attraction-tag">Naturaleza e Historia</span>
+                            <div class="attraction-header">
+                                <h3>Parque de Chapultepec</h3>
+                                <button class="attraction-toggle-btn" onclick="toggleAttractionInfo(this)">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="attraction-info">
+                                <p>Descubre la belleza del Bosque de Chapultepec y conoce la historia de México en el magnífico Castillo de Chapultepec. El parque urbano más grande de Latinoamérica.</p>
+                                <span class="attraction-tag">Naturaleza e Historia</span>
+                                <div class="attraction-actions">
+                                    <button class="btn-visit" onclick="window.open('https://share.google/I69mklEhWdlmedbIP', '_blank')">
+                                        Ver en Maps <i class="fas fa-external-link-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="attraction-card" onclick="window.open('https://share.google/qPf6okZBEFCPALFok', '_blank')">
-                        <img src="https://media.admagazine.com/photos/62dad7efef35b9d5f2a98871/16:9/w_2560%2Cc_limit/GettyImages-1125944655.jpg" alt="Frida Kahlo" class="attraction-image">
+                    <!-- Tarjeta 3: Museo Frida Kahlo -->
+                    <div class="attraction-card">
+                        <img src="https://media.admagazine.com/photos/62dad7efef35b9d5f2a98871/16:9/w_2560%2Cc_limit/GettyImages-1125944655.jpg" 
+                             alt="Frida Kahlo" class="attraction-image">
                         <div class="attraction-content">
-                            <h3>Museo Frida Kahlo</h3>
-                            <p>Descubre la Casa Azul de Coyoacán, el antiguo hogar de Frida Kahlo. Explora su arte, su vida y el lugar donde floreció su creatividad. Un espacio íntimo y fascinante.</p>
-                            <span class="attraction-tag">Arte y Cultura</span>
+                            <div class="attraction-header">
+                                <h3>Museo Frida Kahlo</h3>
+                                <button class="attraction-toggle-btn" onclick="toggleAttractionInfo(this)">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="attraction-info">
+                                <p>Descubre la Casa Azul de Coyoacán, el antiguo hogar de Frida Kahlo. Explora su arte, su vida y el lugar donde floreció su creatividad. Un espacio íntimo y fascinante.</p>
+                                <span class="attraction-tag">Arte y Cultura</span>
+                                <div class="attraction-actions">
+                                    <button class="btn-visit" onclick="window.open('https://share.google/qPf6okZBEFCPALFok', '_blank')">
+                                        Ver en Maps <i class="fas fa-external-link-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="attraction-card" onclick="searchGoogle('La Roma Condesa Ciudad de México restaurantes bares')">
-                        <img src="https://mex-best.mx/wp-content/uploads/2025/07/21_ROMA-1536x1024-1.jpg" alt="La Roma" class="attraction-image">
+                    <!-- Tarjeta 4: La Roma y Condesa -->
+                    <div class="attraction-card">
+                        <img src="https://mex-best.mx/wp-content/uploads/2025/07/21_ROMA-1536x1024-1.jpg" 
+                             alt="La Roma" class="attraction-image">
                         <div class="attraction-content">
-                            <h3>La Roma y La Condesa</h3>
-                            <p>Saborea los sabores mexicanos modernos y tradicionales en los barrios de moda de La Roma y La Condesa. Desde tacos callejeros hasta platos gourmet, cada rincón es un paraíso foodie.</p>
-                            <span class="attraction-tag">Gastronomía y Vida Nocturna</span>
+                            <div class="attraction-header">
+                                <h3>La Roma y La Condesa</h3>
+                                <button class="attraction-toggle-btn" onclick="toggleAttractionInfo(this)">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="attraction-info">
+                                <p>Saborea los sabores mexicanos modernos y tradicionales en los barrios de moda de La Roma y La Condesa. Desde tacos callejeros hasta platos gourmet, cada rincón es un paraíso foodie.</p>
+                                <span class="attraction-tag">Gastronomía y Vida Nocturna</span>
+                                <div class="attraction-actions">
+                                    <button class="btn-visit" onclick="searchGoogle('La Roma Condesa Ciudad de México restaurantes bares')">
+                                        Buscar en Google <i class="fas fa-external-link-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="attraction-card" onclick="window.open('https://share.google/uyoswKtnNAfayxnBE', '_blank')">
-                        <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/79D9/production/_99739113_gettyimages-73656849.jpg.webp" alt="Teotihuacán" class="attraction-image">
+                    <!-- Tarjeta 5: Teotihuacán -->
+                    <div class="attraction-card">
+                        <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/79D9/production/_99739113_gettyimages-73656849.jpg.webp" 
+                             alt="Teotihuacán" class="attraction-image">
                         <div class="attraction-content">
-                            <h3>Teotihuacán</h3>
-                            <p>A una hora de la ciudad, maravíllate con las imponentes pirámides del Sol y la Luna. Camina por la Calzada de los Muertos y descubre los secretos de esta antigua ciudad prehispánica.</p>
-                            <span class="attraction-tag">Arqueología y Aventura</span>
+                            <div class="attraction-header">
+                                <h3>Teotihuacán</h3>
+                                <button class="attraction-toggle-btn" onclick="toggleAttractionInfo(this)">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="attraction-info">
+                                <p>A una hora de la ciudad, maravíllate con las imponentes pirámides del Sol y la Luna. Camina por la Calzada de los Muertos y descubre los secretos de esta antigua ciudad prehispánica.</p>
+                                <span class="attraction-tag">Arqueología y Aventura</span>
+                                <div class="attraction-actions">
+                                    <button class="btn-visit" onclick="window.open('https://share.google/uyoswKtnNAfayxnBE', '_blank')">
+                                        Ver en Maps <i class="fas fa-external-link-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="attraction-card" onclick="window.open('https://share.google/SX4M3FbP8cKQTjyW3', '_blank')">
-                        <img src="https://github.com/Turomexico/MoradaLuna/blob/main/Xochimilco%201.jpg?raw=true" alt="Xochimilco" class="attraction-image">
+                    <!-- Tarjeta 6: Xochimilco -->
+                    <div class="attraction-card">
+                        <img src="https://github.com/Turomexico/MoradaLuna/blob/main/Xochimilco%201.jpg?raw=true" 
+                             alt="Xochimilco" class="attraction-image">
                         <div class="attraction-content">
-                            <h3>Xochimilco</h3>
-                            <p>Navega por los coloridos canales en una trajinera tradicional, disfruta de música mariachi y comida típica. Este Patrimonio de la Humanidad es una experiencia única de tradición mexicana.</p>
-                            <span class="attraction-tag">Tradición y Naturaleza</span>
+                            <div class="attraction-header">
+                                <h3>Xochimilco</h3>
+                                <button class="attraction-toggle-btn" onclick="toggleAttractionInfo(this)">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="attraction-info">
+                                <p>Navega por los coloridos canales en una trajinera tradicional, disfruta de música mariachi y comida típica. Este Patrimonio de la Humanidad es una experiencia única de tradición mexicana.</p>
+                                <span class="attraction-tag">Tradición y Naturaleza</span>
+                                <div class="attraction-actions">
+                                    <button class="btn-visit" onclick="window.open('https://share.google/SX4M3FbP8cKQTjyW3', '_blank')">
+                                        Ver en Maps <i class="fas fa-external-link-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1952,9 +2112,12 @@
                 <div style="text-align: center; margin-top: 3rem;">
                     <p style="color: #666; font-size: 1.1rem; max-width: 800px; margin: 0 auto 1.5rem;">
                         <i class="fas fa-lightbulb" style="color: #4a6fa5; margin-right: 10px;"></i>
-                        <strong>Tip de Morada Luna:</strong> Haz clic en cualquier imagen para tener información sobre ese lugar en Google/Maps.
+                        <strong>Tip de Morada Luna:</strong> Haz clic en el botón de cada lugar para ver más información y opciones.
                     </p>
-                    <a href="https://wa.me/5215511406820?text=¡Hola! Necesito recomendaciones para mi viaje a CDMX" class="btn-visit" target="_blank" style="text-decoration: none;">Solicitar Recomendaciones</a>
+                    <a href="https://wa.me/5215511406820?text=¡Hola! Necesito recomendaciones para mi viaje a CDMX" 
+                       class="btn-visit" target="_blank" style="text-decoration: none;">
+                        Solicitar Recomendaciones Personalizadas
+                    </a>
                 </div>
             </div>
         </section>
@@ -2156,6 +2319,7 @@
             setupWhatsAppModal();
             setupFIFAModal();
             initReviewsGrid();
+            initAttractionCards();
             
             // Suavizar scroll a las secciones
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -2243,6 +2407,15 @@
             });
         }
 
+        // Inicializar tarjetas de atracciones
+        function initAttractionCards() {
+            // Asegurarse de que todas las tarjetas empiecen cerradas
+            document.querySelectorAll('.attraction-info').forEach(info => {
+                info.style.maxHeight = '0';
+                info.style.opacity = '0';
+            });
+        }
+
         // Crear tarjeta de reseña para cuadrícula
         function createReviewCardGrid(review, index) {
             const reviewCard = document.createElement('div');
@@ -2271,6 +2444,40 @@
             `;
             
             return reviewCard;
+        }
+
+        // Función para expandir/contraer información de atracciones
+        function toggleAttractionInfo(button) {
+            const attractionCard = button.closest('.attraction-card');
+            const attractionInfo = attractionCard.querySelector('.attraction-info');
+            const icon = button.querySelector('i');
+            
+            // Alternar clase expanded
+            attractionInfo.classList.toggle('expanded');
+            button.classList.toggle('expanded');
+            
+            // Cambiar icono
+            if (attractionInfo.classList.contains('expanded')) {
+                icon.className = 'fas fa-chevron-up';
+                // Aplicar estilos de expansión
+                attractionInfo.style.maxHeight = '500px';
+                attractionInfo.style.opacity = '1';
+                attractionInfo.style.marginTop = '1rem';
+                
+                // Scroll suave para ver más contenido
+                setTimeout(() => {
+                    attractionCard.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest'
+                    });
+                }, 300);
+            } else {
+                icon.className = 'fas fa-chevron-down';
+                // Aplicar estilos de contracción
+                attractionInfo.style.maxHeight = '0';
+                attractionInfo.style.opacity = '0';
+                attractionInfo.style.marginTop = '0';
+            }
         }
 
         // Función para reservar con animación de fútbol
@@ -2505,9 +2712,6 @@
                 searchBtn.classList.remove('searching');
                 searchBtn.disabled = false;
                 searchBtn.innerHTML = 'Buscar Disponibilidad';
-                
-                // Mostrar mensaje y abrir WhatsApp
-                alert(`Buscando disponibilidad en ${location} para:\n${checkIn} al ${checkOut}\n${adults} adultos, ${children} niños\n\nRedirigiendo a WhatsApp...`);
                 
                 // Abrir WhatsApp con el mensaje formateado
                 window.open(`https://wa.me/5215511406820?text=${encodeURIComponent(message)}`, '_blank');
